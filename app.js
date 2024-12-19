@@ -1,6 +1,9 @@
 // Select containers
 const recipesContainer = document.getElementById('recipes');
-const bookmarksContainer = document.getElementById('bookmarks');
+const bookmarksContainer = document.getElementById('bookmarked-recipes');
+
+// Declare a global variable to hold the recipe data
+let recipes = [];
 
 // Fetch the JSON data
 fetch('data/recipes.json')
@@ -9,8 +12,9 @@ fetch('data/recipes.json')
     return response.json();
   })
   .then(data => {
-    displayRecipes(data);
-    loadBookmarks(data); // Load bookmarks from localStorage
+    recipes = data;  // Store the fetched recipes in a global variable
+    displayRecipes(recipes);
+    loadBookmarks(recipes); // Load bookmarks from localStorage
   })
   .catch(error => console.error('Error fetching recipes:', error));
 
@@ -53,12 +57,8 @@ function removeBookmark(id) {
 // Function to update and display bookmarks
 function updateBookmarks() {
   const bookmarks = JSON.parse(localStorage.getItem('bookmarkedRecipes')) || [];
-  fetch('data/recipes.json')
-    .then(response => response.json())
-    .then(recipes => {
-      const bookmarkedRecipes = recipes.filter(recipe => bookmarks.includes(recipe.id));
-      displayBookmarkedRecipes(bookmarkedRecipes);
-    });
+  const bookmarkedRecipes = recipes.filter(recipe => bookmarks.includes(recipe.id));
+  displayBookmarkedRecipes(bookmarkedRecipes);
 }
 
 // Function to load bookmarks on page load
@@ -89,8 +89,16 @@ function displayBookmarkedRecipes(recipes) {
 
 // Clear all bookmarks (optional bonus feature)
 function clearAllBookmarks() {
-    localStorage.removeItem('bookmarkedRecipes');
-    updateBookmarks();
-    alert('All bookmarks cleared!');
-  }
-  
+  localStorage.removeItem('bookmarkedRecipes');
+  updateBookmarks();
+  alert('All bookmarks cleared!');
+}
+
+// Search functionality
+document.getElementById('search-input').addEventListener('input', function () {
+  const query = this.value.toLowerCase();
+  const filteredRecipes = recipes.filter(recipe => recipe.name.toLowerCase().includes(query));
+  displayRecipes(filteredRecipes);
+});
+
+// Initial display (handled when the data is fetched)

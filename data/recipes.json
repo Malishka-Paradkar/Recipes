@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "name": "Spaghetti Carbonara",
+    "name": "Bombolini",
     "description": "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
-    "ingredients": ["Spaghetti", "Eggs", "Cheese", "Pancetta", "Pepper"]
+    "ingredients": ["1 cup warm milk", "2 tsp active dry yeast", "2 tbsp sugar", "3 ½ cups all-purpose flour", "2 eggs", "1 tsp vanilla extract", "½ tsp salt", "Oil for frying", "½ cup unsalted butter", "Sugar for coating", "Filling of choice"]
   },
   {
     "id": 2,

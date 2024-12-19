@@ -1,111 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Food Symphony</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavorful Fusion</title>
+    <style>
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /* Includes padding and border in element width/height */
     }
 
-    /* Header Styles */
-    header {
-      background-color: #007bff;
-      color: white;
-      padding: 1em;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('./image/bg1.png'); 
+            background-size: cover; /* Image covers the entire background */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-attachment: fixed; /* Keeps the background fixed during scrolling */
+            color: white; /* Makes text readable against a dark background */
+            font-size: 18px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center; /* Center-align all text on the page */
+            flex-direction: column;
+            height: 100vh; /* Ensure the body takes the full height */
+            overflow: hidden;
+        }
 
-    header h1 {
-      margin: 0;
-    }
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #6a4a3c;
+            color: white;
+            width: 100%;
+            position: fixed; /* Keeps header fixed */
+            top: 0;
+            z-index: 10; /* Ensures the header stays on top */
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 1em;
-    }
+        .header h1 {
+            margin: 0;
+            font-size: 36px; /* Increase the font size for the header */
+            color: white;
+        }
 
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
 
-    .clear-btn {
-      background-color: #dc3545;
-      color: white;
-      border: none;
-      padding: 0.5em 1em;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+        .buttons a {
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: white;
+            color: #6a4a3c;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-    /* Section Styling */
-    section {
-      padding: 1em;
-    }
+        .buttons a:hover {
+            background-color: #f5f5f5;
+        }
 
-    h2 {
-      border-bottom: 2px solid #007bff;
-      padding-bottom: 0.5em;
-    }
+        /* Main Content */
+        .content {
+            text-align: center;
+            padding: 60px 20px;
+            width: 100%;
+            max-width: 100%; /* Prevent overflow */
+            margin-top: 80px; /* Space for fixed header */
+        }
 
-    /* Recipe Card Styling */
-    .recipe-card {
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      margin-bottom: 1em;
-      padding: 1em;
-    }
+        .dynamic-text {
+            color: white;
+            font-size: 28px;
+            font-style: italic;
+            margin-top: 20px;
+            height: 30px; /* Ensures proper spacing */
+            transition: opacity 0.5s ease-in-out;
+        }
 
-    button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 0.5em 1em;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    .recipe-card button {
-      margin-top: 1em;
-    }
-  </style>
+        .content p {
+            max-width: 900px;
+            margin: 30px auto;
+            line-height: 1.6;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
 </head>
+
 <body>
-  <!-- Header Section -->
-  <header>
-    <h1>Food Recipe App</h1>
-    <nav class="nav-links">
-      <a href="#recipes">Recipes</a>
-      <a href="#bookmarked-recipes">Bookmarked Recipes</a>
-    </nav>
-    <button class="clear-btn" onclick="clearAllBookmarks()">Clear All Bookmarks</button>
-  </header>
+    <!-- Header -->
+    <div class="header">
+        <h1>Flavorful Fusion</h1>
+        <div class="buttons">
+            <a href="login.html" title="Login Page">Login</a>
+            <a href="login.html" title="Sign Up Page">Sign Up</a>
+        </div>
+    </div>
 
-  <!-- Recipes Section -->
-  <section id="recipes">
-    <h2>Recipes</h2>
-    <div id="recipes-container"></div>
-  </section>
+    <!-- Main Content -->
+    <div class="content">
+        <h1>WELCOME TO Flavorful Fusion</h1>
+        <div class="dynamic-text" id="dynamicText"></div> <!-- For dynamic text -->
 
-  <!-- Bookmarked Recipes Section -->
-  <section id="bookmarked-recipes">
-    <h2>Bookmarked Recipes</h2>
-    <div id="bookmarks"></div>
-  </section>
+        <p>Welcome to Flavorful Fusion, your ultimate destination for exploring and bookmarking delicious recipes! Discover a symphony of flavors with easy-to-follow instructions, vibrant visuals, and a seamless user experience. Start your culinary journey today!</p>
+    </div>
 
-  <script src="app.js"></script>
+    <!-- JavaScript for Dynamic Text -->
+    <script>
+        const dynamicText = [
+            "A world of flavors, one click away!",
+            "Bookmark your favorite dishes and create your culinary masterpiece.",
+            "Find inspiration for every meal, every day!",
+            "Explore recipes that make your taste buds dance!",
+            "Cook with ease, eat with joy!",
+        ];
+        let index = 0;
+
+        function updateDynamicText() {
+            const textElement = document.getElementById("dynamicText");
+            textElement.textContent = dynamicText[index];
+            index = (index + 1) % dynamicText.length; // Loop through the array
+        }
+
+        // Initial call and interval for updating text
+        updateDynamicText();
+        setInterval(updateDynamicText, 1500); // Change text every 1.5 seconds
+    </script>
 </body>
+
 </html>
