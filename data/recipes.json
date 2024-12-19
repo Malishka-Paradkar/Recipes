@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Spaghetti Carbonara",
+    "description": "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
+    "ingredients": ["Spaghetti", "Eggs", "Cheese", "Pancetta", "Pepper"]
+  },
+  {
+    "id": 2,
+    "name": "Chicken Curry",
+    "description": "A flavorful and spicy chicken curry with a creamy tomato-based sauce.",
+    "ingredients": ["Chicken", "Tomatoes", "Onions", "Garlic", "Spices"]
+  },
+  {
+    "id": 3,
+    "name": "Vegetable Stir Fry",
+    "description": "A quick and healthy stir-fry with fresh vegetables and soy sauce.",
+    "ingredients": ["Broccoli", "Carrots", "Bell Peppers", "Soy Sauce", "Garlic"]
+  },
+  {
+    "id": 4,
+    "name": "Beef Stroganoff",
+    "description": "A hearty beef dish with mushrooms and a creamy sauce, served over noodles.",
+    "ingredients": ["Beef", "Mushrooms", "Sour Cream", "Onions", "Noodles"]
+  },
+  {
+    "id": 5,
+    "name": "Chocolate Cake",
+    "description": "A rich and moist chocolate cake topped with chocolate frosting.",
+    "ingredients": ["Flour", "Cocoa Powder", "Butter", "Sugar", "Eggs"]
+  }
+]
